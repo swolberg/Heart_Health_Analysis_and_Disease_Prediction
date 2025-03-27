@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Pie Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1 style="text-align:center;">Data Collection States</h1>
+    <div id="pie_chart" style="width:650px; height:600px; margin:auto;"></div>
+    
+    <script>
+        var data = [{
+            values: [304, 293, 200, 123],  // Dynamic values from Python
+            labels: ['0', '1', '3', '2'],  // Dynamic labels from Python
+            type: "pie",
+            marker: {
+                colors: ["#a6a832", "#32a0a8", "#599173", "#bfbf95"],
+                line: { color: "black", width: 2 }
+            },
+            textinfo: "label+percent",
+            pull: [0.1, 0, 0, 0]  // Explode first slice
+        }];
+        
+        var layout = {
+            paper_bgcolor: "#dff2ef",
+            plot_bgcolor: "#dff2ef",
+            title: {
+                text: "Data Collection States",
+                font: { size: 30, family: "Times New Roman", color: "#191e1f" }
+            }
+        };
+        
+        Plotly.newPlot("pie_chart", data, layout);
+    </script>
+</body>
+</html>
